@@ -15,6 +15,7 @@
 		C095AE02282BE55300BA10D5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C095AE01282BE55300BA10D5 /* SnapKit */; };
 		C095AE04282BFD7600BA10D5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C095AE03282BFD7600BA10D5 /* TabBarController.swift */; };
 		C095AE07282E3E6900BA10D5 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C095AE06282E3E6900BA10D5 /* FeedTableViewCell.swift */; };
+		C095AE09282FAF7E00BA10D5 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C095AE08282FAF7E00BA10D5 /* UIButton+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		C095ADFA282BE50700BA10D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C095AE03282BFD7600BA10D5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C095AE06282E3E6900BA10D5 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		C095AE08282FAF7E00BA10D5 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				C095ADEC282BE50400BA10D5 /* AppDelegate.swift */,
 				C095ADEE282BE50400BA10D5 /* SceneDelegate.swift */,
+				C095AE08282FAF7E00BA10D5 /* UIButton+.swift */,
 				C095AE05282BFD8800BA10D5 /* Scenes */,
 				C095ADF5282BE50700BA10D5 /* Assets.xcassets */,
 				C095ADF7282BE50700BA10D5 /* LaunchScreen.storyboard */,
@@ -74,8 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				C095ADF0282BE50400BA10D5 /* FeedViewController.swift */,
-				C095AE03282BFD7600BA10D5 /* TabBarController.swift */,
 				C095AE06282E3E6900BA10D5 /* FeedTableViewCell.swift */,
+				C095AE03282BFD7600BA10D5 /* TabBarController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C095ADF1282BE50400BA10D5 /* FeedViewController.swift in Sources */,
+				C095AE09282FAF7E00BA10D5 /* UIButton+.swift in Sources */,
 				C095AE04282BFD7600BA10D5 /* TabBarController.swift in Sources */,
 				C095ADED282BE50400BA10D5 /* AppDelegate.swift in Sources */,
 				C095ADEF282BE50400BA10D5 /* SceneDelegate.swift in Sources */,
