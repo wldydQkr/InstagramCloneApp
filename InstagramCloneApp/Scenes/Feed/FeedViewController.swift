@@ -20,6 +20,15 @@ class FeedViewController: UIViewController {
         return tableView
     }()
     
+    private lazy var imagePickerViewController: UIImagePickerController = {
+        let imagePickerViewController = UIImagePickerController()
+        imagePickerViewController.sourceType = .photoLibrary
+        imagePickerViewController.allowsEditing = true
+        imagePickerViewController.delegate = self
+        
+        return imagePickerViewController
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,6 +53,32 @@ extension FeedViewController: UITableViewDataSource {
     }
 }
 
+extension FeedViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate { // Delegate 채택시 NavigationControllerDelegate도 꼭 같이 채택
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // 이미지가 선택 되었을 때 다음에 실행되는 메서드
+        var selectImage: UIImage?
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? // 선택된 이미지의 정보를 가지고 있는 딕셔너리
+            UIImage {
+            selectImage = editedImage // 수정된 이미지가 존재하면 selectImage에 대입
+            } else if let originImage =
+                        info[UIImagePickerController.InfoKey.originalImage] as? // originalImage가 존재하면 selectImage에 대입
+                        UIImage {
+                selectImage = originImage
+            }
+        
+        print(selectImage)
+        
+        picker.dismiss(animated: true) { [weak self] in
+            let uploadViewController = UploadViewController(uploadImage: selectImage ?? UIImage())
+            let navigationController = UINavigationController(rootViewController: uploadViewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            
+            self?.present(navigationController, animated: true)
+        }
+    }
+}
+
 private extension FeedViewController {
     func setupNavigationBar() {
         navigationItem.title = "Instagram"
@@ -52,9 +87,13 @@ private extension FeedViewController {
             image: UIImage(systemName: "plus.app"),
             style: .plain,
             target: self,
-            action: nil
+            action: #selector(didTapUploadButton)
         )
         navigationItem.rightBarButtonItem = uploadButton
+    }
+    
+    @objc func didTapUploadButton() {
+        present(imagePickerViewController, animated: true)
     }
     
     func setupTableView() {
